@@ -6,7 +6,7 @@ var moment = require('moment');
 var LdapAuth = require('ldapauth-fork');
 var Promise = require('promise');
 
-app = require('express')();
+//app = require('express')();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
