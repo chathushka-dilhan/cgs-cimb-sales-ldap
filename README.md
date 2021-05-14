@@ -1,7 +1,5 @@
-# cgs-cimb-sales-ldap
+# CGS-CIMB LDAP Integration
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=cgs-cimb-sales-ldap)](https://sonarcloud.io/dashboard?id=cgs-cimb-sales-ldap)
-
-LDAP implementation for CGS-CIMB
 
 [![CI](https://github.com/markdown-it/markdown-it/workflows/CI/badge.svg)](https://github.com/staizen-dilhan/cgs-cimb-sales-ldap/actions)
 [![NPM version](https://img.shields.io/badge/npm-v15.0.0-blue)](https://github.com/staizen-dilhan/cgs-cimb-sales-ldap)
