@@ -4,7 +4,7 @@
 LDAP implementation for CGS-CIMB
 
 [![CI](https://github.com/markdown-it/markdown-it/workflows/CI/badge.svg)](https://github.com/staizen-dilhan/cgs-cimb-sales-ldap/actions)
-[![NPM version](https://img.shields.io/npm/v/markdown-it.svg?style=flat)](https://github.com/staizen-dilhan/cgs-cimb-sales-ldap)
+[![NPM version](https://img.shields.io/badge/npm-v15.0.0-blue)](https://github.com/staizen-dilhan/cgs-cimb-sales-ldap)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=cgs-cimb-sales-ldap&metric=bugs)](https://sonarcloud.io/dashboard?id=cgs-cimb-sales-ldap)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=cgs-cimb-sales-ldap&metric=code_smells)](https://sonarcloud.io/dashboard?id=cgs-cimb-sales-ldap)
