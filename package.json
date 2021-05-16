@@ -1,0 +1,29 @@
+{
+  "name": "cgs-cimb-sales-ldap",
+  "version": "1.0.0",
+  "description": "[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=cgs-cimb-sales-ldap)](https://sonarcloud.io/dashboard?id=cgs-cimb-sales-ldap)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staizen-dilhan/cgs-cimb-sales-ldap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staizen-dilhan/cgs-cimb-sales-ldap/issues"
+  },
+  "homepage": "https://github.com/staizen-dilhan/cgs-cimb-sales-ldap#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jwt-simple": "^0.5.6",
+    "ldapauth-fork": "^5.0.1",
+    "moment": "^2.29.1",
+    "promise": "^8.1.0"
+  }
+}
