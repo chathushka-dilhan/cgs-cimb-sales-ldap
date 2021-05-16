@@ -2,7 +2,7 @@
   "name": "cgs-cimb-sales-ldap",
   "version": "1.0.0",
   "description": "[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=cgs-cimb-sales-ldap)](https://sonarcloud.io/dashboard?id=cgs-cimb-sales-ldap)",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

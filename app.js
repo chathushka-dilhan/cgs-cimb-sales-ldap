@@ -30,7 +30,7 @@ var authenticate = function (username, password) {
 	});
 };
 
-app.post('/auth', function (req, res) {
+app.post('/auth', async function (req, res) {
 	if(req.body.username && req.body.password) {
 		authenticate(req.body.username, req.body.password)
 			.then(function(user) {
