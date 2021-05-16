@@ -17,7 +17,7 @@ var auth = new LdapAuth(settings.ldap);
 
 app.set('jwtTokenSecret', settings.jwt.secret);
 
-var authenticate = function (username, password) {
+var authenticate = async function (username, password) {
 	return new Promise(function (resolve, reject) {
 		auth.authenticate(username, password, function (err, user) {
 			if(err)
@@ -31,6 +31,11 @@ var authenticate = function (username, password) {
 };
 
 app.post('/auth', async function (req, res) {
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+    });
+
 	if(req.body.username && req.body.password) {
 		authenticate(req.body.username, req.body.password)
 			.then(function(user) {
