@@ -63,8 +63,7 @@ app.post('/auth', function (req, res) {
 
 			});
 	} else {
-		//res.status(400).send({error: 'No username or password supplied'});
-		res.status(400).send({error: "User data: "+ JSON.stringify(data) });
+		res.status(400).send({error: 'No username or password supplied'});
 	}
 });
 
