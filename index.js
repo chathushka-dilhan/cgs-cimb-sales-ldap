@@ -11,7 +11,7 @@ const express = require('express');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(require('cors')());
+//app.use(require('cors')());
 
 var auth = new LdapAuth(settings.ldap);
 
@@ -31,10 +31,10 @@ var authenticate = function (username, password) {
 };
 
 app.post('/auth', function (req, res) {
-    res.set({
+    /*res.set({
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true,
-    });
+    });*/
 
 	var data = JSON.parse(req.body.toString());
 
