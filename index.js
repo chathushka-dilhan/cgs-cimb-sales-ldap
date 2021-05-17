@@ -11,7 +11,6 @@ const express = require('express');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//app.use(require('cors')());
 
 var auth = new LdapAuth(settings.ldap);
 
@@ -31,11 +30,6 @@ var authenticate = function (username, password) {
 };
 
 app.post('/auth', function (req, res) {
-    /*res.set({
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-    });*/
-
 	var data = JSON.parse(req.body.toString());
 
 	if(data.username && data.password) {
@@ -86,12 +80,4 @@ app.post('/verify', function (req, res) {
 	}
 });
 
-/*var port = (process.env.PORT || 3000);
-app.listen(port, function() {
-	//console.log('Listening on port: ' + port);
-
-	if (typeof settings.ldap.reconnect === 'undefined' || settings.ldap.reconnect === null || settings.ldap.reconnect === false) {
-		console.warn('WARN: This service may become unresponsive when ldap reconnect is not configured.')
-	}
-});*/
 module.exports.handler = serverless(app);
