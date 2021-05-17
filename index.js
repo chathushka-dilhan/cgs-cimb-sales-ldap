@@ -29,7 +29,7 @@ var authenticate = function (username, password) {
 	});
 };
 
-app.post('/auth', function (req, res) {
+app.post('/api/v1/ldap/auth', function (req, res) {
 	var data = JSON.parse(req.body.toString());
 
 	if(data.username && data.password) {
@@ -61,7 +61,7 @@ app.post('/auth', function (req, res) {
 	}
 });
 
-app.post('/verify', function (req, res) {
+app.post('/api/v1/ldap/verify', function (req, res) {
 	var token = JSON.parse(req.body.toString()).token;
 	if (token) {
 		try {
