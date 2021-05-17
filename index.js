@@ -17,7 +17,7 @@ var auth = new LdapAuth(settings.ldap);
 
 app.set('jwtTokenSecret', settings.jwt.secret);
 
-var authenticate = async function (username, password) {
+var authenticate = function (username, password) {
 	return new Promise(function (resolve, reject) {
 		auth.authenticate(username, password, function (err, user) {
 			if(err)
@@ -30,16 +30,18 @@ var authenticate = async function (username, password) {
 	});
 };
 
-app.post('/auth', async function (req, res) {
+app.post('/auth', function (req, res) {
     res.set({
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true,
     });
 
-	if(req.body.username && req.body.password) {
-		authenticate(req.body.username, req.body.password)
+	var data = JSON.parse(req.body.toString());
+
+	if(data.username && data.password) {
+		authenticate(data.username, data.password)
 			.then(function(user) {
-				var expires = parseInt(moment().add(2, 'days').format("X"));
+				var expires = parseInt(moment().add(2, 'minutes').format("X"));
 				var token = jwt.encode({
 					exp: expires,
 					user_name: user.uid,
@@ -60,9 +62,29 @@ app.post('/auth', async function (req, res) {
 				}
 
 			});
-		} else {
-			res.status(400).send({error: 'No username or password supplied'});
+	} else {
+		//res.status(400).send({error: 'No username or password supplied'});
+		res.status(400).send({error: "User data: "+ JSON.stringify(data) });
+	}
+});
+
+app.post('/verify', function (req, res) {
+	var token = JSON.parse(req.body.toString()).token;
+	if (token) {
+		try {
+			var decoded = jwt.decode(token, app.get('jwtTokenSecret'));
+
+			if (decoded.exp <= parseInt(moment().format("X"))) {
+				res.status(400).send({ error: 'Access token has expired'});
+			} else {
+				res.json(decoded);
+			}
+		} catch (err) {
+			res.status(500).send({ error: 'Access token could not be decoded'});
 		}
+	} else {
+		res.status(400).send({ error: 'Access token is missing'});
+	}
 });
 
 /*var port = (process.env.PORT || 3000);
