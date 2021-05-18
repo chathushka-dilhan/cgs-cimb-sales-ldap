@@ -1,0 +1,11 @@
+service: ldap-app-authorizer
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: ap-southeast-1
+  memorySize: 128
+  timeout: 10
+functions:
+  app:
+    handler: index.handler

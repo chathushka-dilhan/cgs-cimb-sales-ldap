@@ -1,0 +1,24 @@
+{
+  "name": "cgs-cimb-lambda-authorizer",
+  "version": "1.0.0",
+  "description": "sales-portal-lambda-authorizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staizen-dilhan/cgs-cimb-lambda-authorizer.git"
+  },
+  "author": "Dilhan CHATHUSHKA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staizen-dilhan/cgs-cimb-lambda-authorizer/issues"
+  },
+  "homepage": "https://github.com/staizen-dilhan/cgs-cimb-lambda-authorizer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1"
+  }
+}
