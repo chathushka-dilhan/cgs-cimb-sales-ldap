@@ -1,9 +1,10 @@
 {
     "ldap": {
         "url": "ldap://ldap.forumsys.com:389",
+        "bindDN": "cn=read-only-admin,dc=example,dc=com",
         "bindCredentials": "password",
         "searchBase": "dc=example,dc=com",
-        "searchFilter": "(uid={{username}})",
+        "searchFilter": "(mail={{username}})",
         "timeout": 5000,
         "connectTimeout": 10000,
         "reconnect": true
