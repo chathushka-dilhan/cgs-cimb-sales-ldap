@@ -8,6 +8,12 @@ provider:
   timeout: 10
   tracing:
     lambda: true
+  vpc:
+      securityGroupIds:
+        - sg-06ab64e58d24ab0ad
+      subnetIds:
+        - subnet-04009d9ac29303471
+        - subnet-005a749fa5d3c95ab
 functions:
   app:
     handler: index.handler

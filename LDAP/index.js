@@ -31,12 +31,12 @@ var authenticate = function (username, password) {
 };
 
 app.post('/api/v1/ldap/auth', function (req, res) {
-	var data = JSON.parse(req.body.toString());
+	var data = req.body;
 
 	if(data.username && data.password) {
 		authenticate(data.username, data.password)
 			.then(function(user) {
-				var expires = parseInt(moment().add(2, 'minutes').format("X"));
+				var expires = parseInt(moment().add(1, 'days').format("X"));
 				var token = jwt.encode({
 					exp: expires,
 					user_name: user.uid,
@@ -63,7 +63,8 @@ app.post('/api/v1/ldap/auth', function (req, res) {
 });
 
 app.post('/api/v1/ldap/verify', function (req, res) {
-	var token = JSON.parse(req.body.toString()).token;
+	var data = req.body;
+	var token = data.token;
 	if (token) {
 		try {
 			var decoded = jwt.decode(token, app.get('jwtTokenSecret'));
