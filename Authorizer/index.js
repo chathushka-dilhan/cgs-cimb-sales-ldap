@@ -39,6 +39,7 @@ exports.handler =  function(event, context, callback) {
 	}
 };
 
+//will need the code for the API gateway integration
 /*var generatePolicy = function(principalId, effect, resource, msg) {
     var authResponse = {};
     
