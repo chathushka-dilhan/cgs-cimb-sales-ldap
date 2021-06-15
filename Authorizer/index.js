@@ -15,15 +15,27 @@ exports.handler =  function(event, context, callback) {
 			var decoded = jwt.decode(token, app.get('jwtTokenSecret'));
 
 			if (decoded.exp <= parseInt(moment().format("X"))) {
-				callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token has expired'}))
+				//callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token has expired'}))
+				return {
+                    			authorized: true
+               			}
 			} else {
-				callback(null, generatePolicy('user', 'Allow', event.methodArn, decoded))
+				//callback(null, generatePolicy('user', 'Allow', event.methodArn, decoded))
+				return {
+                    			authorized: false
+                		}
 			}
 		} catch (err) {
-			callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token could not be decoded'}))
+			//callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token could not be decoded'}))
+			return {
+                    		authorized: false
+                	}
 		}
 	} else {
-		callback(null, generatePolicy('user', 'Deny', event.methodArn, event))
+		//callback(null, generatePolicy('user', 'Deny', event.methodArn, event))
+		return {
+                    	authorized: false
+                }
 	}
 };
 
