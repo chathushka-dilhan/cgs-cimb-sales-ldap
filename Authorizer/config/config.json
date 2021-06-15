@@ -1,9 +1,10 @@
 {
     "ldap": {
-        "url": "ldap://ldap.forumsys.com:389",
-        "bindCredentials": "password",
-        "searchBase": "dc=example,dc=com",
-        "searchFilter": "(uid={{username}})",
+        "url": "ldap://sp-dev-nlb-981371706a2cd16c.elb.ap-southeast-1.amazonaws.com:389",
+        "bindDN": "CN=SGSASAWS,OU=04 Service Admins,OU=SG,DC=cgscimb,DC=int",
+        "bindCredentials": "@eGkp#yTPMps",
+        "searchBase": "OU=01 Staff,OU=MY,DC=cgscimb,DC=int",
+        "searchFilter": "(mail={{username}})",
         "timeout": 5000,
         "connectTimeout": 10000,
         "reconnect": true

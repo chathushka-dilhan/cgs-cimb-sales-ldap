@@ -17,29 +17,30 @@ exports.handler =  function(event, context, callback) {
 			if (decoded.exp <= parseInt(moment().format("X"))) {
 				//callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token has expired'}))
 				return {
-                    			authorized: true
-               			}
+                    authorized: true
+               	}
 			} else {
 				//callback(null, generatePolicy('user', 'Allow', event.methodArn, decoded))
 				return {
-                    			authorized: false
-                		}
+                    authorized: false
+                }
 			}
 		} catch (err) {
 			//callback(null, generatePolicy('user', 'Deny', event.methodArn, { error: 'Access token could not be decoded'}))
 			return {
-                    		authorized: false
-                	}
+                authorized: false
+            }
 		}
 	} else {
 		//callback(null, generatePolicy('user', 'Deny', event.methodArn, event))
 		return {
-                    	authorized: false
-                }
+            authorized: false
+        }
 	}
 };
 
-var generatePolicy = function(principalId, effect, resource, msg) {
+//will need the code for the API gateway integration
+/*var generatePolicy = function(principalId, effect, resource, msg) {
     var authResponse = {};
     
     authResponse.principalId = principalId;
@@ -57,4 +58,4 @@ var generatePolicy = function(principalId, effect, resource, msg) {
     
     authResponse.context = msg;
     return authResponse;
-}
+}*/
