@@ -44,7 +44,7 @@ app.post('/api/v1/ldap/auth', function (req, res) {
 					mail: user.mail
 				}, app.get('jwtTokenSecret'));
 
-				res.json({token: token, full_name: user.cn});
+				res.json({token: token, full_name: user.cn, user_name: user.uid, email: user.mail});
 			})
 			.catch(function (err) {
 				console.log(err);
